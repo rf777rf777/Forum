@@ -8,6 +8,16 @@
 		<% end %>
 
 		<%= link_to "Respond" , new_group_post_path(@group) ,class: "btn btn-warning" %>
+
+		<% if current_user.present? %>
+			<% if current_user.is_member_of?(@group) %>
+				<%= link_to "QuitGroup" ,quit_group_path(@group), method: :post ,class: "btn btn-danger" %>
+			<% else %>
+				<%= link_to "JoinGroup" ,join_group_path(@group),method: :post,class: "btn btn-info" %>
+			<% end %>
+		<% end %>
+
+		
 	</div>
 	
 	<h2> <%= @group.title %> </h2>

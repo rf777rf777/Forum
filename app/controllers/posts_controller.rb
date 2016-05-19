@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_group
+	before_action :member_required,only: [:new,:create]
 
 	def new
 		#@group = Group.find(params[:group_id])
@@ -56,5 +57,12 @@ class PostsController < ApplicationController
 
 	def post_params
 		params.require(:post).permit(:content)
+	end
+
+	def member_required
+		if !current_user.is_member_of?(@group)
+			flash[:warning] = "You're not a member of this group!"
+			redirect_to group_path(@group)
+		end
 	end
 end
