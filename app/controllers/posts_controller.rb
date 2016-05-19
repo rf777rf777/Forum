@@ -9,12 +9,14 @@ class PostsController < ApplicationController
 
 	def edit
 		#@group = Group.find(params[:group_id])
-		@post = @group.posts.find(params[:id])
+		#@post = @group.posts.find(params[:id])
+		@post = current_user.posts.find(params[:id])
 	end
 
 	def create
 		#@group = Group.find(params[:group_id])
 		@post = @group.posts.build(post_params)
+		@post.author = current_user
 
 		if @post.save
 			redirect_to group_path(@group) ,notice: "RespondSuccess!"
@@ -25,7 +27,8 @@ class PostsController < ApplicationController
 
 	def update
 		#@group = Group.find(params[:group_id])
-		@post = @group.posts.find(params[:id])
+		#@post = @group.posts.find(params[:id])
+		@post = current_user.posts.find(params[:id])
 
 		if @post.update(post_params)
 			redirect_to group_path(@group), notice: "EditSuccess!"
@@ -36,7 +39,8 @@ class PostsController < ApplicationController
 
 	def destroy
 		#@group = Group.find(params[:group_id])
-		@post = @group.posts.find(params[:id])
+		#@post = @group.posts.find(params[:id])
+		@post = current_user.posts.find(params[:id])
 
 		@post.destroy
 		redirect_to group_path(@group) , alert:"DeleteSuccess!"
