@@ -9,6 +9,9 @@ class GroupsController < ApplicationController
 
 	def show
 		@group = Group.find(params[:id])
+
+		#在 groups 下的 show action 撈出 @group 所有的 posts
+		@posts = @group.posts
 	end
 
 	def edit
