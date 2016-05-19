@@ -7,6 +7,9 @@ gem 'rails', '4.2.6'
 # add Bootstrap
 gem 'bootstrap-sass'
 
+# add SimpleForm-自動產生Bootstrap的表單版型
+gem 'simple_form'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
