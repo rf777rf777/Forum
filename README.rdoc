@@ -1,28 +1,12 @@
-== README
+這是一個討論區作品，成品部署於heroku，使用者可以登入發表自己的討論或回應其他人，使用了gem "simple_form" 取代原生的form、並加入了gem "devise"登入功能用來實做作者與後臺機制。
+開發環境下有實做一個seed.rb檔來做假資料的填入測試。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby 與 Rails版本
+ Ruby : 2.2.0 Rails : 4.2.6
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* 連結網址 https://polar-atoll-35128.herokuapp.com/
+ 1.請先註冊帳號密碼後，會自動登入。
+ 2.按下NewGroup鍵可以發表新的討論。
+ 3.於首頁進入任一討論並加入該Group，可以回應文章。
+ 4.巡覽列的MyGroups與MyPosts分別可以列出自己加入的Group與發表的Post。
+ 5.只有作者本身能對自己的討論或貼文修改。
